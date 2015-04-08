@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class ExpenseMain {
     public static void main(String[] args) throws ClassNotFoundException {
-        Expense newExpense = new Expense(6, "2011-6-5", 2, 1000);
+        Expense newExpense = new Expense(7, "2011-9-5", 3, 5900);
         ExpenseService expenseService = new ExpenseService();
         expenseService.addExpense(newExpense);
         List<Expense> expenses = expenseService.getExpenses();

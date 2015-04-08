@@ -13,18 +13,18 @@ import java.util.List;
  */
 public class JDBCExpense implements ExpenseDAO{
 
-    private static final String SQL_INSERT_EXPENSES = "INSERT INTO expenses (num,paydate,receiver,value) values (?,?,?,?)";
+    private static final String SQL_INSERT_EXPENSES = "INSERT INTO expenses (num,paydate,receiver,value) values (?,?,?,?);";
     private static final String SQL_GET_EXPENSES = "SELECT * FROM root.expenses";
 
 
     @Override
     public void addExpense(Expense expense) throws ClassNotFoundException {
-        Class.forName("com.mysql.jdbc_5.1.5");
+        Class.forName("com.mysql.jdbc.Driver");
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Miruk", "root", "admin123");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/root", "root", "admin123");
             preparedStatement = connection.prepareStatement(SQL_INSERT_EXPENSES);
             preparedStatement.setInt(1, expense.getNum());
             preparedStatement.setString(2, expense.getPaydate());
