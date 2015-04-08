@@ -9,6 +9,13 @@ public class Expense {
     private int receiver;
     private int value;
 
+    public Expense(int num, String paydate, int receiver, int value) {
+        this.num = num;
+        this.paydate = paydate;
+        this.receiver = receiver;
+        this.value = value;
+    }
+
     public Expense() {
     }
 
